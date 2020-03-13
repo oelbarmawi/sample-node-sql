@@ -4,12 +4,20 @@
   "description": "sample app with express.js and mysql",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install-client": "cd ./frontend && npm install",
+    "test": "node app.js",
+    "server": "nodemon app.js",
+    "client": "cd ./frontend && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^5.1.0",
     "express": "^4.17.1",
     "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
