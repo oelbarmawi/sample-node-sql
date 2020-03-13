@@ -4,6 +4,7 @@
 * [Installing MySQL](#installing-mysql)
 * [Configuring MySQL Workbench](#configuring-mysql-workbench)
 * [Running the RESTful Backend](#running-the-restful-backend)
+* [Combining Frontend and Backend](#combining-frontend-and-backend)
 
 ## Prerequisites  
 * [Node.js](https://nodejs.org/en/download/)
@@ -30,7 +31,7 @@ Make sure that the connection is working properly.
 ## Running the RESTful Backend
 If you haven't already, clone this repository to your local machine. In the `sample-node-sql` directory, enter the following commands to meet the prerequisites of the project:
 ```
-npm install express, mysql
+npm install
 ```
 To run this server, I used `nodemon` which is an npm package which essentially allows you to make edits in the code and visualize it in the browser without having to constantly stop and restart the server. To install this package run the command:
 ```
@@ -55,3 +56,20 @@ Navigate to [localhost:3000/](http://localhost:3000/) and you should see `Sadaqa
 To create a database, navigate to [localhost:3000/createdb](http://localhost:3000/createdb)  
 To create a table in that database, navigate to [localhost:3000/createtransactiontable](http://localhost:3000/createtransactiontable)  
 To delete the database, navigate to [localhost:3000/deletedb](http://localhost:3000/deletedb)  
+
+## Combining Frontend and Backend
+
+To run the frontend and backend together, start by installing all dependencies
+```
+npm install
+npm run install-client
+```
+
+To start the frontend and backend together, we can run the following command that can be found in scripts section of `package.json`.
+```
+npm run dev
+```
+
+After running the above command, the frontend and backend are running together on localhost. The frontend is running on port 3000 while the backend is running on port 5000. So now you can enter a username and password, and when you hit submit, it will create and populate a database.
+
+To understand the logic, refer to `sample-node-sql/frontend/src/components/login/login.js`.
